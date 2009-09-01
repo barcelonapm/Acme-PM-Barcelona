@@ -5,7 +5,7 @@ use strict;
 
 =head1 NAME
 
-Acme::PM::Barcelona - The great new Acme::PM::Barcelona!
+Acme::PM::Barcelona - Talks and projects by Barcelona.pm
 
 =head1 VERSION
 
@@ -18,35 +18,25 @@ our $VERSION = '0.01';
 
 =head1 SYNOPSIS
 
-Quick summary of what the module does.
+This is a list of talks and projects made by Barcelona.pm as a group.
 
-Perhaps a little code snippet.
+=head1 DETAILS
 
-    use Acme::PM::Barcelona;
+=head2 TALKS
 
-    my $foo = Acme::PM::Barcelona->new();
-    ...
+=over 4
 
-=head1 EXPORT
+=item 19 Sep 2009 - Software Freedom Day
 
-A list of functions that can be exported.  You can delete this section
-if you don't export anything, such as for a purely object-oriented module.
+The talk I<Coneixeu Perl amb Barcelona.pm> consists in 12 subjects
+presented in 5 minutes each, trying to attrack more people to our
+Perl Mongers group, but mainly to Perl.
 
-=head1 FUNCTIONS
+=back
 
-=head2 function1
+=head2 PROJECTS
 
-=cut
-
-sub function1 {
-}
-
-=head2 function2
-
-=cut
-
-sub function2 {
-}
+Nothing here yet.
 
 =head1 AUTHOR
 
@@ -93,6 +83,7 @@ L<http://search.cpan.org/dist/Acme-PM-Barcelona>
 
 =head1 ACKNOWLEDGEMENTS
 
+Barcelona Perl Mongers
 
 =head1 COPYRIGHT & LICENSE
 

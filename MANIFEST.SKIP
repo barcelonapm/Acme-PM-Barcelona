@@ -1,0 +1,4 @@
+\.git
+blib
+.*\.bak
+t/boilerplate.t

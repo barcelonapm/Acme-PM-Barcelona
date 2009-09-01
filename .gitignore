@@ -8,3 +8,4 @@ pm_to_blib*
 .lwpcookies
 Acme-PM-Barcelona-*
 cover_db
+*.bak
