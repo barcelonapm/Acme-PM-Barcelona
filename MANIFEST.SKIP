@@ -1,3 +1,5 @@
 \.git
 blib
 .*\.bak
+.*\.old
+Acme-PM-Barcelona-.*

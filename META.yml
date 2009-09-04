@@ -15,6 +15,10 @@ no_index:
   directory:
     - inc
     - t
+requires:
+  DateTime: 0
+  DateTime::Event::ICal: 0
+  DateTime::Set: 0
 resources:
   license: http://dev.perl.org/licenses/
-version: 0.01
+version: 0.02

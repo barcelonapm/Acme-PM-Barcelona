@@ -1,46 +1,61 @@
-package Acme::PM::Barcelona;
+package Acme::PM::Barcelona::Meeting;
 
 use warnings;
 use strict;
 
 =head1 NAME
 
-Acme::PM::Barcelona - Talks and projects by Barcelona.pm
+Acme::PM::Barcelona::Meeting - When is the next meeting?
 
 =head1 VERSION
 
-Version 0.02
+Version 0.01
 
 =cut
 
-our $VERSION = '0.02';
+our $VERSION = '0.01';
 
+use base 'DateTime::Set';
+use DateTime;
+use DateTime::Event::ICal;
 
 =head1 SYNOPSIS
 
-This is a list of talks and projects made by Barcelona.pm as a group.
+  use Acme::PM::Barcelona::Meeting;
 
-=head1 DETAILS
+  my $barcelona_pm = Acme::PM::Barcelona::Meeting->new();
+  print $barcelona_pm->next->datetime(), "\n";
 
-=head2 TALKS
+=head1 DESCRIPTION
 
-=over 4
+This module helps finding when the next Barcelona Perl Mongers meeting
+will take place.
 
-=item 19 Sep 2009 - Software Freedom Day
-
-The talk I<Coneixeu Perl amb Barcelona.pm> consists in 12 subjects
-presented in 5 minutes each, trying to attrack more people to our
-Perl Mongers group, but mainly to Perl.
-
-=back
-
-=head2 PROJECTS
+=head1 USAGE
 
 =over 4
 
-=item Acme::PM::Barcelona::Meeting
+=item new
 
-A way of finding out when the next meeting will take place.
+Creates a parent DateTime::Set object. All other methods are inherited.
+
+=cut
+
+sub new {
+    my $class = shift;
+
+    # every last Thu of the month at 20:00
+    my $self = DateTime::Event::ICal->recur(
+        dtstart  => DateTime->now,
+        freq     => 'monthly',
+        byday    => [ "-1th" ],
+        byhour   => [ 20 ],
+        byminute => [ 0 ],
+        bysecond => [ 0 ],
+    );
+
+    bless $self, $class;
+}
 
 =back
 
@@ -61,7 +76,7 @@ automatically be notified of progress on your bug as I make changes.
 
 You can find documentation for this module with the perldoc command.
 
-    perldoc Acme::PM::Barcelona
+    perldoc Acme::PM::Barcelona::Meeting
 
 
 You can also look for information at:
@@ -101,4 +116,4 @@ under the same terms as Perl itself.
 
 =cut
 
-1; # End of Acme::PM::Barcelona
+1; # End of Acme::PM::Barcelona::Meeting

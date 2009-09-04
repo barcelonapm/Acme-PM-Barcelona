@@ -11,6 +11,7 @@ inc/Module/Install/Metadata.pm
 inc/Module/Install/Win32.pm
 inc/Module/Install/WriteAll.pm
 lib/Acme/PM/Barcelona.pm
+lib/Acme/PM/Barcelona/Meeting.pm
 Makefile
 Makefile.PL
 MANIFEST
@@ -18,5 +19,6 @@ MANIFEST.SKIP
 META.yml
 README
 t/00-load.t
+t/meeting.t
 t/pod-coverage.t
 t/pod.t
