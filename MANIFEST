@@ -11,6 +11,7 @@ inc/Module/Install/Metadata.pm
 inc/Module/Install/Win32.pm
 inc/Module/Install/WriteAll.pm
 lib/Acme/PM/Barcelona.pm
+lib/Acme/PM/Barcelona/12x5.pod
 lib/Acme/PM/Barcelona/Meeting.pm
 Makefile
 Makefile.PL
