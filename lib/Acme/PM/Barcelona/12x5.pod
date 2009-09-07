@@ -1,0 +1,109 @@
+=head1 NAME
+
+Acme::PM::Barcelona::12x5 - Twelve talks, five minutes each
+
+=head1 VERSION
+
+Version 0.01
+
+=head1 SYNOPSIS
+
+Quick introduction to Perl by Barcelona Perl Mongers group.
+
+=head1 DESCRIPTION
+
+12x5 is a presentation format introduced by Mark Jason Dominus to
+Barcelona.pm group on July 2003. We liked it so much that we want
+to do the same for introducing both Perl and our local Perl community
+to anyone listening.
+
+=head1 PRESENTATIONS
+
+=head2 Title1
+
+This is a brief introduction for this presentation.
+
+=head3 Slide1.1
+
+=over 4
+
+=item * item foo
+
+=item * item bar
+
+=item * item ...
+
+=back
+
+=head3 Slide1.2
+
+=over 4
+
+=item 1. item1
+
+=item 2. item2
+
+=item 3. ...
+
+=back
+
+=head3 Slide1.3
+
+This example below is verbatim code:
+
+  sub is_num_eq {
+      my ( $first, $second ) = @_;
+
+      return $first == $second;
+  }
+
+=head2 Title2
+
+=head2 Title3
+
+=head2 Title4
+
+=head2 Title5
+
+=head2 Title6
+
+=head2 Title7
+
+=head2 Title8
+
+=head2 Title9
+
+=head2 Title10
+
+=head2 Title11
+
+=head2 Title12
+
+=head1 AUTHOR
+
+Alex Muntada, C<< <alexm at cpan.org> >>
+
+=head1 BUGS
+
+Please report any bugs or feature requests to C<bug-acme-pm-barcelona at rt.cpan.org>, or through
+the web interface at L<http://rt.cpan.org/NoAuth/ReportBug.html?Queue=Acme-PM-Barcelona>.  I will be notified, and then you'll
+automatically be notified of progress on your bug as I make changes.
+
+=head1 ACKNOWLEDGEMENTS
+
+=over 4
+
+=item Mark Jason Dominus
+
+=item Barcelona Perl Mongers
+
+=back
+
+=head1 COPYRIGHT & LICENSE
+
+Copyright 2009 Alex Muntada, all rights reserved.
+
+This program is free software; you can redistribute it and/or modify it
+under the same terms as Perl itself.
+
+=cut
