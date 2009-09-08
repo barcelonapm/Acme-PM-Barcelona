@@ -57,11 +57,84 @@ This example below is verbatim code:
       return $first == $second;
   }
 
-=head2 Title2
+=head2 WWW::Mechanize
 
-=head2 Title3
+Amb Perl es poden escriure programes que naveguen per la web.
 
-=head2 Title4
+=head3 La Vanguardia
+
+Aquest programa descarrega la pagina web de La Vanguardia.
+
+  use WWW::Mechanize;
+  
+  $mech = WWW::Mechanize->new;
+  $mech->get("http://www.lavanguardia.es");
+  
+  print $mech->content;
+
+=head2 Cerca a Google
+
+Aquest programa fa una cerca a Google per la paraula "Perl"
+
+  use WWW::Mechanize;
+  
+  my $mech = WWW::Mechanize->new;
+  
+  $mech->get('http://www.google.com');
+  $mech->field('q', 'Perl');
+  $mech->click('btnG');
+  
+  print $mech->content;
+
+=head2 La Caixa
+
+Aquest programa treu per pantalla la primera pagina de l'extracte
+d'un compte de La Caixa.
+
+  use WWW::Mechanize;
+  
+  $user = 'el-teu-dni';
+  $password = 'contrassenya';
+  
+  # fest-te passar per un iPhone, es mes senzill
+  $iphone = "Mozilla/5.0 (iPhone; U; CPU iPhone OS 3_0 like Mac OS X; en-us) AppleWebKit/528.18 (KHTML, like Gecko) Version/4.0 Mobile/7A341 Safari/528.16";
+  $mech = WWW::Mechanize->new(agent => $iphone);
+  
+  # home page
+  $mech->get("http://lacaixa.mobi/apl/index_es.html?select=true");
+  $mech->follow_link(url_regex => qr/es-mobi-menu-lo/);
+  
+  # fes login
+  $mech->submit_form(
+  	form_name => "formu",
+  	fields => {
+  		E => $user,
+  		B => $password
+  	}
+  );
+  
+  # segueix el primer enllac,	
+  $mech->follow_link(tag => 'a', n => 1);	
+  
+  # captura els moviments
+  ($movements) = $mech->content =~ m{(<ul[^>]*>\s*<li[^>]*>\s*<a.*?</ul>)}i;
+  
+  $mov_regexp = qr{
+      <td\s+align="left"> (.+?) </td>
+      .*?
+      <font[^>]+> ([\d,-]+) .*? </font>
+      .*?
+      <li[^>]+> (\d+/\d+/\d+)
+  }sx;
+  
+  print "$1, $2, $3\n" while $movements =~ /$mov_regexp/g;
+  
+  # AHORRA EL CAMBIO, -2,10, 06/09/2009
+  # FRANKFURT PLATJA-, -14,40, 05/09/2009
+  # DECATHLON ILLA PR, -7,90, 05/09/2009
+  # CAPRABO, -7,64, 04/09/2009
+  # GESOIL S.A. LEVAN, -18,88, 04/09/2009
+  # ...
 
 =head2 Title5
 
