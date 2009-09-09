@@ -61,7 +61,7 @@ This example below is verbatim code:
 
 Amb Perl es poden escriure programes que naveguen per la web.
 
-=head3 La Vanguardia
+=head3 La pàgina d'inici de La Vanguardia
 
 Aquest programa descarrega la pagina web de La Vanguardia.
 
@@ -72,7 +72,7 @@ Aquest programa descarrega la pagina web de La Vanguardia.
   
   print $mech->content;
 
-=head2 Cerca a Google
+=head3 Una cerca a Google
 
 Aquest programa fa una cerca a Google per la paraula "Perl"
 
@@ -86,7 +86,7 @@ Aquest programa fa una cerca a Google per la paraula "Perl"
   
   print $mech->content;
 
-=head2 La Caixa
+=head3 L'extracte d'un compte de La Caixa
 
 Aquest programa treu per pantalla la primera pagina de l'extracte
 d'un compte de La Caixa.
