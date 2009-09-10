@@ -1,69 +1,32 @@
-=head1 NAME
+=head1 NOM
 
-Acme::PM::Barcelona::12x5 - Twelve talks, five minutes each
+Acme::PM::Barcelona::12x5 - 12 xerrades, 5 minuts cadascuna
 
-=head1 VERSION
+=head1 VERSIE<Oacute>
 
 Version 0.01
 
-=head1 SYNOPSIS
+=head1 SINOPSI
 
-Quick introduction to Perl by Barcelona Perl Mongers group.
+IntroducciE<oacute> rE<agrave>pida a Perl a cE<agrave>rrec dels grup
+dels Perl Mongers de Barcelona.
 
-=head1 DESCRIPTION
+=head1 DESCRIPCIE<Oacute>
 
-12x5 is a presentation format introduced by Mark Jason Dominus to
-Barcelona.pm group on July 2003. We liked it so much that we want
-to do the same for introducing both Perl and our local Perl community
-to anyone listening.
+12x5 E<eacute>s un format de presentaciE<oacute> que en Mark Jason Dominus
+va mostrar al grup de Barcelona.pm el juliol de 2003. Ens va agradar
+tant que volem fer el mateix per introduir tant Perl com la nostra
+comunitat local de Perl a qualsevol que ens escolti.
 
-=head1 PRESENTATIONS
-
-=head2 Title1
-
-This is a brief introduction for this presentation.
-
-=head3 Slide1.1
-
-=over 4
-
-=item * item foo
-
-=item * item bar
-
-=item * item ...
-
-=back
-
-=head3 Slide1.2
-
-=over 4
-
-=item 1. item1
-
-=item 2. item2
-
-=item 3. ...
-
-=back
-
-=head3 Slide1.3
-
-This example below is verbatim code:
-
-  sub is_num_eq {
-      my ( $first, $second ) = @_;
-
-      return $first == $second;
-  }
+=head1 PRESENTACIONS
 
 =head2 WWW::Mechanize
 
 Amb Perl es poden escriure programes que naveguen per la web.
 
-=head3 La pàgina d'inici de La Vanguardia
+=head3 La pE<agrave>gina d'inici de La Vanguardia
 
-Aquest programa descarrega la pagina web de La Vanguardia.
+Aquest programa descarrega la pE<agrave>gina web de La Vanguardia.
 
   use WWW::Mechanize;
   
@@ -74,7 +37,7 @@ Aquest programa descarrega la pagina web de La Vanguardia.
 
 =head3 Una cerca a Google
 
-Aquest programa fa una cerca a Google per la paraula "Perl"
+Aquest programa fa una cerca la paraula "Perl" a Google.
 
   use WWW::Mechanize;
   
@@ -88,13 +51,13 @@ Aquest programa fa una cerca a Google per la paraula "Perl"
 
 =head3 L'extracte d'un compte de La Caixa
 
-Aquest programa treu per pantalla la primera pagina de l'extracte
+Aquest programa treu per pantalla la primera pE<agrave>gina de l'extracte
 d'un compte de La Caixa.
 
   use WWW::Mechanize;
   
   $user = 'el-teu-dni';
-  $password = 'contrassenya';
+  $password = 'contrasenya';
   
   # fest-te passar per un iPhone, es mes senzill
   $iphone = "Mozilla/5.0 (iPhone; U; CPU iPhone OS 3_0 like Mac OS X; en-us) AppleWebKit/528.18 (KHTML, like Gecko) Version/4.0 Mobile/7A341 Safari/528.16";
@@ -136,33 +99,41 @@ d'un compte de La Caixa.
   # GESOIL S.A. LEVAN, -18,88, 04/09/2009
   # ...
 
-=head2 Title5
+=head2 TE<iacute>tol2
 
-=head2 Title6
+=head2 TE<iacute>tol3
 
-=head2 Title7
+=head2 TE<iacute>tol4
 
-=head2 Title8
+=head2 TE<iacute>tol5
 
-=head2 Title9
+=head2 TE<iacute>tol6
 
-=head2 Title10
+=head2 TE<iacute>tol7
 
-=head2 Title11
+=head2 TE<iacute>tol8
 
-=head2 Title12
+=head2 TE<iacute>tol9
 
-=head1 AUTHOR
+=head2 TE<iacute>tol10
+
+=head2 TE<iacute>tol11
+
+=head2 TE<iacute>tol12
+
+=head1 AUTOR
 
 Alex Muntada, C<< <alexm at cpan.org> >>
 
-=head1 BUGS
+=head1 ERRADES
 
-Please report any bugs or feature requests to C<bug-acme-pm-barcelona at rt.cpan.org>, or through
-the web interface at L<http://rt.cpan.org/NoAuth/ReportBug.html?Queue=Acme-PM-Barcelona>.  I will be notified, and then you'll
-automatically be notified of progress on your bug as I make changes.
+Si us plau, informeu de qualsevol errada o millora a
+C<bug-acme-pm-barcelona at rt.cpan.org>, o a travE<eacute>s
+de la web L<http://rt.cpan.org/NoAuth/ReportBug.html?Queue=Acme-PM-Barcelona>.
+Jo rebrE<eacute> un avE<iacute>s i se us notificarE<agrave>
+automE<agrave>ticament dels canvis que jo hi faci.
 
-=head1 ACKNOWLEDGEMENTS
+=head1 RECONEIXEMENTS
 
 =over 4
 
@@ -172,11 +143,11 @@ automatically be notified of progress on your bug as I make changes.
 
 =back
 
-=head1 COPYRIGHT & LICENSE
+=head1 COPYRIGHT I LLICE<Egrave>NCIA
 
-Copyright 2009 Alex Muntada, all rights reserved.
+Copyright 2009 Alex Muntada, tots els drets reservats.
 
-This program is free software; you can redistribute it and/or modify it
-under the same terms as Perl itself.
+Aquest programa E<eacute>s programari lliure; el podeu redistribuir i/o
+modificar sota els mateixos termes que el propi Perl.
 
 =cut
