@@ -1,6 +1,6 @@
 =head1 NOM
 
-Acme::PM::Barcelona::12x5 - 12 xerrades, 5 minuts cadascuna
+Acme::PM::Barcelona::12x5_ca - 12 xerrades, 5 minuts cadascuna
 
 =head1 VERSIE<Oacute>
 
