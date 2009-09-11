@@ -37,7 +37,7 @@ Aquest programa descarrega la pE<agrave>gina web de La Vanguardia.
 
 =head3 Una cerca a Google
 
-Aquest programa fa una cerca la paraula "Perl" a Google.
+Aquest programa cerca la paraula "Perl" a Google.
 
   use WWW::Mechanize;
   
@@ -75,7 +75,9 @@ d'un compte de La Caixa.
   		B => $password
   	}
   );
-  
+
+=head3 ...
+
   # segueix el primer enllac,	
   $mech->follow_link(tag => 'a', n => 1);	
   
@@ -146,13 +148,137 @@ Es pot obtenir el canvi actualitzat de la moneda d'arreu del mE<oacute>n.
 
 =head2 TE<iacute>tol10
 
-=head2 TE<iacute>tol11
+=head2 Cultura Perl
+
+=head3 Perl Golf
+
+=over 4
+
+=item * El Perl Golf E<eacute>s un divertiment.
+
+=item * Consisteix en resoldre un cert problema en Perl usant el mE<iacute>nim
+nombre de carE<agrave>cters possible.
+
+=item * El nom es una conya que ve de l'anglE<egrave>s. Es tracta d'usar el
+mE<iacute>nim nombre de B<(key)strokes>. Seguint amb l'analogia, als
+problemes en golf se'ls anomena B<holes>.
+
+=item * Normalment es juga a golf en torneigs.
+
+=back
+
+=head3 Exemple 1
+
+Redueix un nombre enter al seu nombre secret:
+
+  #!/usr/bin/perl -l
+  print while+s/./hex($`%10+$&)%15/eg^s//pop/e
+
+=head3 Exemple 2
+
+Troba tots els anagrames:
+
+  #!/usr/bin/perl
+  map!s/
+  \b/ /|//||print,sort%%for map$%.=$_,sort<>
+
+=head3 Exemple 3
+
+Fes una ordenaciE<oacute> topologica:
+
+  #!/usr/bin/perl -ln0
+  / \Q$&/||print$1while s/(
+  |(?= ?\G))\Q$&/
+  /g,/(\S+) /g/$#+
+
+=head3 Poesia Perl
+
+=over 4
+
+=item * Com que Perl tE<eacute> paraules clau i funcions que sE<oacute>n paraules angleses,
+i a mE<eacute>s la sintaxi E<eacute>s bastant permisiva, hi ha gent que hi escriu poesies.
+
+=item * Les poesies han de ser sintE<agrave>cticament correctes, perE<ograve> es permet que
+generin warnings, i no es demana que facin res en particular.
+
+=back
+
+=head3 Exemple 1
+
+  study, write, study,
+  do review (each word) if time.
+  close book. sleep? what's that?
+
+=head3 Example 2
+
+  no less can I say;
+  require strict, close attention
+  while you ... write haiku
+
+=head3 Example 3
+
+  APPEAL:
+  listen (please, please);
+      open yourself, wide;
+      join (you, me),
+      connect (us,together),
+  tell me.
+  do something if distressed;
+      @dawn, dance;
+      @evening, sing;
+      read (books,$poems,stories) until peaceful;
+      study if able;
+      write me if-you-please;
+  sort your feelings, reset goals, seek (friends, family, anyone);
+          do*not*die (like this)
+          if sin abounds;
+  keys (hidden), open (locks, doors), tell secrets;
+      do not I-beg-you, close them, yet.
+                  accept (yourself, changes),
+                  bind (grief, despair);
+      require truth, goodness if-you-will, each moment;
+  select (always), length(of-days)
+
+=head3 JAPHs
+
+=over 4
+
+=item * Un JAPH es un programa Perl que treu per pantalla la frase
+"Just another Perl hacker,".
+
+=item * Normalment els JAPHs sE<oacute>n molt originals, o molt
+obfuscats.
+
+=back
+
+=head3 Exemple 1
+
+  $_ = "wftedskaebjgdpjgidbsmnjgc";
+  tr/a-z/oh, turtleneck Phrase Jar!/; print;
+
+=head3 Exemple 2
+
+  @P=split//,".URRUU\c8R";@d=split//,"\nrekcah xinU / lreP rehtona tsuJ";sub p{
+  @p{"r$p","u$p"}=(P,P);pipe"r$p","u$p";++$p;($q*=2)+=$f=!fork;map{$P=$P[$f^ord
+  ($p{$_})&6];$p{$_}=/ ^$P/ix?$P:close$_}keys%p}p;p;p;p;p;map{$p{$_}=~/^[P.]/&&
+  close$_}%p;wait until$?;map{/^r/&&<$_>}%p;$_=$d[$q];sleep rand(2)if/\S/;print
+
+=head3 Exemple 3
+
+  $_=q;Barcelona Perl Mongers;,$/=y,gaudi,,,;map$,+=(split//)*(-1)**$|++
+  ,(split)[.11_09,1.714];$.=''!~m~erce~;$"=y,catalunya,,,$;=y,rambles,,,
+  $*=$/^$.;$:=$.+length,$@=$***$**$/**$*%$:,$%=$/*$"-$*;print+chr($_<0xA
+  ?$.."$[$_":m:^$.:?$..$_:$_)for($**$**$/*$",$"*$@+$**$/,$**$,,$***$,,$/
+  *$,,$;,$***$/,$,*$/,$.<<$,,$%-$*,$"+$/,$***$,,(($,*$*)**$*)-$/,$***$/,
+  $@+$/,$:-($/**$*),$.,$:+$"+$*,$.<<$*,$,**$/-$:-$,,exp$:/$,,$",$.,$"*$*
+  ,$***$,,log$.,$.,-$/+$"*$,,$/+$"*$;,$.,++$@,$***($/&=$/+Barcelona_pm))
 
 =head2 TE<iacute>tol12
 
 =head1 AUTOR
 
 Alex Muntada, C<< <alexm at cpan.org> >>
+Xavier Noria, C<< <fxn at cpan.org> >>
 
 =head1 ERRADES
 
