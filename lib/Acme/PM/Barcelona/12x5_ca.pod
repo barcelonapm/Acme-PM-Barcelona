@@ -37,7 +37,7 @@ Aquest programa descarrega la pE<agrave>gina web de La Vanguardia.
 
 =head3 Una cerca a Google
 
-Aquest programa fa una cerca la paraula "Perl" a Google.
+Aquest programa cerca la paraula "Perl" a Google.
 
   use WWW::Mechanize;
   
