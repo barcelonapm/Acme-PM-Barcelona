@@ -75,7 +75,9 @@ d'un compte de La Caixa.
   		B => $password
   	}
   );
-  
+
+=head3 ...
+
   # segueix el primer enllac,	
   $mech->follow_link(tag => 'a', n => 1);	
   
