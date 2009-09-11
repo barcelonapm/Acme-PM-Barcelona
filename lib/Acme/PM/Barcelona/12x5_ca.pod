@@ -99,7 +99,36 @@ d'un compte de La Caixa.
   # GESOIL S.A. LEVAN, -18,88, 04/09/2009
   # ...
 
-=head2 TE<iacute>tol2
+=head2 Finance::Quote i Cache::FileCache
+
+Es pot obtenir el canvi actualitzat de la moneda d'arreu del mE<oacute>n.
+
+=head3 ConversiE<oacute> de dE<ograve>lars a euros
+
+  use Finance::Quote 1.16;
+
+  $quote = Finance::Quote->new();
+  $ratio = $quote->currency('USD', 'EUR');
+
+  print "10 USD = ", 10 * $ratio, " EUR\n";
+
+=head3 Millorem la velocitat amb una cE<ograve>pia temporal
+
+  use Cache::FileCache;
+  use Finance::Quote 1.16;
+
+  $cache = Cache::FileCache->new({
+    default_expires_in => '1 day',
+  });
+
+  $ratio = $cache->get("USD:EUR");
+  if ( !defined $ratio ) {
+    $quote = Finance::Quote->new();
+    $ratio = $quote->currency('USD', 'EUR')
+    $cache->set("USD:EUR", $ratio);
+  }
+
+  print "10 USD = ", 10 * $ratio, " EUR\n";
 
 =head2 TE<iacute>tol3
 
