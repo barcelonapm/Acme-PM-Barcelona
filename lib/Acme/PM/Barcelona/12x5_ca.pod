@@ -132,7 +132,43 @@ Es pot obtenir el canvi actualitzat de la moneda d'arreu del mE<oacute>n.
 
   print "10 USD = ", 10 * $ratio, " EUR\n";
 
-=head2 TE<iacute>tol3
+=head2 Flickr::Upload
+
+Una eina que utilitza C<Flickr::API> per a publicar fotos a Flickr.
+
+=head3 flickr_upload
+
+La manera mE<eacute>s fE<agrave>cil d'utilitzar l'eina E<eacute>s amb
+l'ordre C<flickr_upload> des de l'intE<egrave>rpret d'ordres. Primer
+heu de configurar l'accE<eacute> al vostre compte de Flickr:
+
+  $ flickr_upload --auth
+
+I un cop ho haureu fet, ja podreu publicar les fotos que vulgueu:
+
+  $ flickr_upload --progress --tag 'barcelona perl mongers' *.jpg
+
+=head3 Programar amb Flickr::Upload
+
+PerE<ograve> tambE<eacute> es pot utilitzar des d'un programa que
+permeti triar amb mE<eacute>s flexibilitat com voleu etiquetar
+les vostres fotos.
+
+  use Flickr::Upload;
+
+  $ua = Flickr::Upload->new({
+    'key'    => $key,
+    'secret' => $secret,
+  });
+
+  $ua->upload(
+    'auth_token' => $auth_token,
+    'photo'      => 'barcelona-pm.jpg',
+    'tags'       => 'barcelona perl mongers',
+    'is_public'  => 1,
+    'is_friend'  => 1,
+    'is_family'  => 1,
+  );
 
 =head2 TE<iacute>tol4
 
