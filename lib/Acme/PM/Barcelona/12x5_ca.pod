@@ -140,7 +140,8 @@ Una eina que utilitza C<Flickr::API> per a publicar fotos a Flickr.
 
 La manera mE<eacute>s fE<agrave>cil d'utilitzar l'eina E<eacute>s amb
 l'ordre C<flickr_upload> des de l'intE<egrave>rpret d'ordres. Primer
-heu de configurar l'accE<eacute> al vostre compte de Flickr:
+heu de configurar l'accE<eacute>s al vostre compte de Flickr seguint
+les instruccions que us indicarE<agrave> aquesta ordre:
 
   $ flickr_upload --auth
 
