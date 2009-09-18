@@ -171,7 +171,70 @@ les vostres fotos.
     'is_family'  => 1,
   );
 
-=head2 TE<iacute>tol4
+=head2 Codis QR
+
+=head3 IntroducciE<oacute>
+
+Els codis QR s'utilitzen per a codificar informaciE<oacute> que pugui
+ser llegida i utilitzada de forma rE<agrave>pida des d'un dispositiu
+lector.
+
+Es tracta d'un invent japonE<agrave>s per tal que es pugui llegir
+informaciE<oacute> rE<agrave>pidament des dels mE<ograve>bils i
+es pugui utilitzar d'immediat sense haver d'escriure res, per exemple
+posant-ho en un anunci d'un diari o en una pancarta al carrer, etc.
+
+=head3 Tipus de dades
+
+S'assemblen als codis de barres perE<ograve> permeten emmagatzemar
+tot tipus de dades:
+
+=over 4
+
+=item * numE<egrave>riques
+
+=item * alfanumE<egrave>riques
+
+=item * binE<agrave>ries
+
+=item * kanji o kana
+
+=back
+
+=head3 CorrecciE<oacute> d'errors
+
+Una altra caracterE<iacute>stica interessant dels codis QR E<eacute>s
+que permeten fer correcciE<oacute> d'errors si el dibuix no es veu
+del tot bE<eacute>. N'hi ha de 4 nivells:
+
+=over 4
+
+=item L recupera el 7%
+
+=item M recupera el 15%
+
+=item Q recupera el 25%
+
+=item H recupera el 30%
+
+=back
+
+=head3 GD::Barcode::QRcode
+
+Generar un codi QR E<eacute>s molt senzill:
+
+  use GD::Barcode::QRcode;
+
+  binmode(STDOUT);
+  print GD::Barcode::QRcode->new('http://perl.cat/')->plot->png;
+
+=head3 Image::DecodeQR
+
+Llegir un codi QR E<eacute>s encara mE<eacute>s senzill:
+
+  use Image::DecodeQR;
+
+  $url = Image::DecodeQR::decode('perl.cat_qr.png');
 
 =head2 TE<iacute>tol5
 
