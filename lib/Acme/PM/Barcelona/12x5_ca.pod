@@ -20,6 +20,69 @@ comunitat local de Perl a qualsevol que ens escolti.
 
 =head1 PRESENTACIONS
 
+=head2 Perl i els Perl Mongers
+
+=head3 QuE<egrave> E<eacute>s Perl?
+
+L<http://www.perl.org/>
+
+Perl E<eacute>s un llenguatge de programaciE<oacute> dinE<agrave>mic
+que va dissenyar un lingE<uuml>ista anomenat Larry Wall l'any 1987.
+
+Des d'aleshores enE<ccedil>E<agrave> s'han publicat diverses versions
+amb canvis importants en el llenguatge, essent la versiE<oacute> 5
+la mE<eacute>s utilitzada fins ara. La versiE<oacute> 6 incorporara
+tants canvis que es considera un llenguatge diferent, Perl 6.
+
+=head3 Per quE<egrave> Perl?
+
+BE<agrave>sicament perquE<egrave> E<eacute>s el llenguatge de
+programaciE<oacute> que a mi mE<eacute>s m'agrada. Hi ha gent
+que en prefereix d'altres perE<ograve>, E<eacute>s clar,
+hi ha d'haver gent per tot en aquest mE<oacute>n.
+
+I a mi, per quE<egrave> m'agrada tant?
+
+=over 4
+
+=item * E<eacute>s divertit d'utilitzar i aprendre'l
+
+=item * hi ha molt de codi ja fet i disponible lliurement
+
+=item * la comunitat de Perl E<eacute>s gran i estE<agrave> disposada a ajudar
+
+=item * estE<agrave> disponible en molts mE<eacute>s llocs del que us penseu
+
+=item * hi puc fer coses que no podria amb d'altres llenguatges
+
+=item * em permet fer les coses com m'agradin mE<eacute>s
+
+=item * m'ajuda a fer la feina
+
+=back
+
+=head3 QuE<egrave> sE<oacute>n els Perl Mongers?
+
+Perl Mongers E<eacute>s una mena associaciE<oacute> internacional
+de tots els grups d'usuaris de Perl.
+
+Cada grup pot fer coses molt diferents del que fan els altres,
+perE<ograve> en la majoria de casos es tracta de grups d'usuaris
+d'un lloc determinat que es reuneixen periE<ograve>dicament per
+parlar de Perl i d'altres temes relacionats.
+
+=head3 Barcelona.pm, els Perl Mongers de Barcelona
+
+L<http://barcelona.perl.org/>
+
+Creat a principis de l'any 2003 per en Timothy Chen Allen,
+el grup de mongers de Barcelona es reuneix el darrer dijous
+de cada mes.
+
+De vegades, des del grup tambE<eacute> s'organitzen festivals,
+xerrades i cursos de Perl amb aprofitant el pas per Barcelona
+d'alguns gurE<uacute>s de la comunitat internacional.
+
 =head2 WWW::Mechanize
 
 Amb Perl es poden escriure programes que naveguen per la web.
@@ -236,8 +299,6 @@ Llegir un codi QR E<eacute>s encara mE<eacute>s senzill:
 
   $url = Image::DecodeQR::decode('perl.cat_qr.png');
 
-=head2 TE<iacute>tol5
-
 =head2 TE<iacute>tol6
 
 =head2 TE<iacute>tol7
@@ -373,7 +434,18 @@ obfuscats.
   $@+$/,$:-($/**$*),$.,$:+$"+$*,$.<<$*,$,**$/-$:-$,,exp$:/$,,$",$.,$"*$*
   ,$***$,,log$.,$.,-$/+$"*$,,$/+$"*$;,$.,++$@,$***($/&=$/+Barcelona_pm))
 
-=head2 TE<iacute>tol12
+=head2 Perl.cat
+
+=head3 La comunitat de programadors de Perl d'àmbit català
+
+L<http://perl.cat/>
+
+Aquest any 2009 hem comprat el domini I<Perl.cat> i hi hem muntat
+un blog i poca cosa mE<eacute>s, perE<ograve> confiem en anar
+fent crE<eacute>ixer la comunitat local poc a poc i omplir de
+continguts el domini.
+
+Qui s'hi vol apuntar?
 
 =head1 AUTOR
 
