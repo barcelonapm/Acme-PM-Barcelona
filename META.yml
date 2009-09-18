@@ -21,4 +21,5 @@ requires:
   DateTime::Set: 0
 resources:
   license: http://dev.perl.org/licenses/
+  repository: http://github.com/alexm/acme-pm-barcelona.git
 version: 0.02

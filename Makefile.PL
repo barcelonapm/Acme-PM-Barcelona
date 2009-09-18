@@ -10,6 +10,8 @@ requires 'DateTime::Event::ICal';
 
 build_requires 'Test::More';
 
+resources repository => 'http://github.com/alexm/acme-pm-barcelona.git';
+
 auto_install;
 
 WriteAll;
