@@ -84,6 +84,90 @@ De vegades, des del grup també s'organitzen festivals,
 xerrades i cursos de Perl amb aprofitant el pas per Barcelona
 d'alguns gurús de la comunitat internacional.
 
+=head2 CPAN
+
+=head3 Comprehensive Perl Archive Network
+
+L<http://www.cpan.org/>
+
+El CPAN és un repositori enorme de codi i documentació posats a
+l'abast de tothom per la comunitat de programadors de Perl d'arreu
+del món.
+
+Algunes dades:
+
+=over 4
+
+=item * es va posar en marxa el 26 d'octubre de 1995
+
+=item * hi ha 7664 autors
+
+=item * aquests autors han fet 16575 mòduls de Perl
+
+=item * existeixen 241 rèpliques del CPAN
+
+=item * l'espai ocupat a cada rèplica és de 6064 MB
+
+=back
+
+=head3 Com funciona?
+
+Publicar codi al CPAN és molt senzill, tothom pot demanar un
+compte a L<http://pause.cpan.org/>, que és el servei que permet
+fer la publicació; un cop aprovat, es poden registrar els mòduls
+i publicar-los.
+
+=head3 Els mòduls i els paquets
+
+Un mòdul és un fitxer de text que conté la definició d'un o més
+paquets de Perl. Per exemple el paquet C<Acme::PM::Barcelona::Meeting>
+defineix el codi que calcula quan serà la propera reunió dels mongers
+de Barcelona. Aquest paquet es troba al fitxer següent dins del
+directori de mòduls de Perl:
+
+  Acme/PM/Barcelona/Meeting.pm
+
+Els paquets defineixen espais de noms reservats per a agrupar
+trossos de codi relacionat amb un mateix tema. Així s'hi poden
+utilitzar els noms de funcions que hom desitgi sense que això
+afecti a d'altres parts del codi.
+
+  package Acme::PM::Barcelona::Meeting;
+
+  sub festival {
+      # ...
+  }
+
+=head3 Les distribucions
+
+Els paquets s'agrupen dins els mòduls i aquests s'agrupen en
+distribucions. Una distribució no només conté el codi d'un o
+més mòduls sinó que a més a més disposa dels mecanismes adients
+per a fer-ne la configuració, la verificació i la instal·lació.
+
+Les distribucions de Perl acostumen a tenir un format concret,
+especialment si hom les vol publicar al CPAN.
+
+=head3 Avantatges del CPAN
+
+El CPAN posa a disposició dels autors que hi publiquen un gran
+ventall de serveis i avantatges a canvi de què el que publiquin
+sigui lliure:
+
+=over 4
+
+=item * un repositori replicat arreu del món
+
+=item * la publicació de la documentació dels mòduls
+
+=item * la possibilitat que els usuaris facin comentaris i anotacions
+
+=item * un sistema automàtic de tests de versions i plataformes
+
+=item * un servei de notificació i seguiment d'errors
+
+=back
+
 =head2 WWW::Mechanize
 
 Amb Perl es poden escriure programes que naveguen per la web.
@@ -299,8 +383,6 @@ Llegir un codi QR és encara més senzill:
   use Image::DecodeQR;
 
   $url = Image::DecodeQR::decode('perl.cat_qr.png');
-
-=head2 Títol6
 
 =head2 Títol7
 
