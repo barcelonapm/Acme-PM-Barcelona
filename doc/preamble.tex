@@ -1,5 +1,6 @@
 \documentclass{beamer}
 \mode<presentation>{
+  %\usetheme[blue, compress]{Trondheim}
   \usetheme{Warsaw}
   \setbeamercovered{transparent}
 }
@@ -16,12 +17,15 @@
  	Barcelona Perl Mongers 
 }
 
-\AtBeginSubsection[]{
-    \begin{frame}<beamer>
-        \frametitle{Índex}
-        \tableofcontents[currentsection,currentsubsection]
-    \end{frame}
-}
+%\AtBeginSubsection[]{
+%    \begin{frame}<beamer>
+%        \frametitle{Índex}
+%        \currentsection
+%		\currentsubsectio
+%    \end{frame}
+%}
+
+\pgfdeclareimage[height=2em,interpolate=true]{}{}
 
 \begin{document}
 
