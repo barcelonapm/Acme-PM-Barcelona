@@ -285,7 +285,7 @@ d'un compte de La Caixa.
   $user = 'el-teu-dni';
   $password = 'contrasenya';
   
-  # fest-te passar per un iPhone, es mes senzill
+  # fes-te passar per un iPhone
   $iphone = "Mozilla/5.0 (iPhone; U; ...";
   $mech = WWW::Mechanize->new(agent => $iphone);
 
