@@ -563,10 +563,17 @@ continguts el domini.
 
 Qui s'hi vol apuntar?
 
-=head1 AUTOR
+=head1 AUTORS
 
-Alex Muntada, C<< <alexm at cpan.org> >>
-Xavier Noria, C<< <fxn at cpan.org> >>
+=over 4
+
+=item Alex Muntada, C<< <alexm a cpan punt org> >>
+
+=item Xavier Noria, C<< <fxn a cpan punt org> >>
+
+=item Jose Luis Martinez C<< <joseluis punt martinez a capside punt com> >>
+
+=back
 
 =head1 ERRADES
 
