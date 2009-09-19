@@ -532,8 +532,8 @@ estigui visible.
 =head3 Obrir algunes pàgines web amb el Firefox (2)
 
   @webs = (
-    'www.perl.org',
-    'www.cpan.org',
+    'perl.org',
+    'cpan.org',
   );
 
   foreach $url (@webs) {
