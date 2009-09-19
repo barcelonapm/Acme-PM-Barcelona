@@ -478,7 +478,90 @@ Llegir un codi QR és encara més senzill:
 
 =head2 Títol9
 
-=head2 Títol10
+=head2 X11::GUITest
+
+=head3 Automatització d'interfícies gràfiques a X11
+
+C<X11::GUITest> permet interactuar amb interfícies gràfiques
+d'usuari basades en X11.
+
+Algunes funcions interessants d'aquest mòdul:
+
+=over 4
+
+=item * C<StartApp> executa l'aplicació i retorna el control al
+programa Perl.
+
+=item * C<SendKeys> simula l'ús del teclat tot enviant les
+pulsacions a la finestra que estigui en primer pla.
+Les teclas modificadores es codifiquen amb caràcters específics:
+
+=over 4
+
+=item ^ => CTRL
+
+=item % => ALT
+
+=item + => MAJ
+
+=item ~ => ENTER
+
+=back
+
+=item * C<WaitWindowViewable> espera a que la finestra de l'aplicació
+estigui visible.
+ 
+=back
+
+=head3 Obrir algunes pàgines web amb el Firefox
+
+  use X11::GUITest qw/
+      StartApp
+      WaitWindowViewable
+      SendKeys
+  /;
+
+  StartApp('firefox http://barcelona.pm.org/');
+
+  ($main_win) = WaitWindowViewable(
+      'Barcelona Perl Mongers',
+      undef,
+      20,
+  );
+
+=head3 Obrir algunes pàgines web amb el Firefox (2)
+
+  @webs = (
+    'www.perl.org',
+    'www.cpan.org',
+  );
+
+  foreach $url (@webs) {
+    SendKeys('%(f)^t');        # Alt-F, Ctrl-T
+    sleep(1);
+    SendKeys('^(l)');          # Ctrl-L
+    SendKeys('http://www.');
+    SendKeys($url);
+    SendKeys('~');             # Intro
+    sleep(2);
+  }
+
+=head3 Automatizació d'un editor de text
+
+  use X11::GUITest qw/StartApp SendKeys/;
+
+  StartApp('gedit');
+
+  SendKeys('~~');
+  SendKeys("Mireu, sense mans!!\n");
+  sleep(2);
+  SendKeys("~Amplio la finestra...\n");
+  sleep(2);
+  SendKeys('{F11}');
+  sleep(2);
+  SendKeys("~...i ara torno a reduir-la\n");
+  SendKeys('{F11}');
+  sleep(2);
 
 =head2 Cultura Perl
 
@@ -625,6 +708,8 @@ Moltes gràcies!
 =item Xavier Noria, C<< <fxn a cpan punt org> >>
 
 =item Jose Luis Martinez C<< <joseluis punt martinez a capside punt com> >>
+
+=item Enrique Nell C<< <blas punt gordon a gmail punt com> >>
 
 =back
 
