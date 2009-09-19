@@ -25,8 +25,6 @@ comunitat local de Perl a qualsevol que ens escolti.
 
 =head3 Què és Perl?
 
-L<http://www.perl.org/>
-
 Perl és un llenguatge de programació dinàmic
 que va dissenyar un lingüista anomenat Larry Wall l'any 1987.
 
@@ -73,8 +71,6 @@ d'un lloc determinat que es reuneixen periòdicament per
 parlar de Perl i d'altres temes relacionats.
 
 =head3 Barcelona.pm, els Perl Mongers de Barcelona
-
-L<http://barcelona.perl.org/>
 
 Creat a principis de l'any 2003 per en Timothy Chen Allen,
 el grup de mongers de Barcelona es reuneix el darrer dijous
@@ -123,8 +119,6 @@ desitjats:
 
 =head3 Comprehensive Perl Archive Network
 
-L<http://www.cpan.org/>
-
 El CPAN és un repositori enorme de codi i documentació posats a
 l'abast de tothom per la comunitat de programadors de Perl d'arreu
 del món.
@@ -148,7 +142,7 @@ Algunes dades:
 =head3 Com funciona?
 
 Publicar codi al CPAN és molt senzill, tothom pot demanar un
-compte a L<http://pause.cpan.org/>, que és el servei que permet
+compte al PAUSE, que és el servei que permet
 fer la publicació; un cop aprovat, es poden registrar els mòduls
 i publicar-los.
 
@@ -554,14 +548,30 @@ obfuscats.
 
 =head3 La comunitat de programadors de Perl d'àmbit català
 
-L<http://perl.cat/>
-
 Aquest any 2009 hem comprat el domini I<Perl.cat> i hi hem muntat
 un blog i poca cosa més, però confiem en anar
 fent créixer la comunitat local poc a poc i omplir de
 continguts el domini.
 
 Qui s'hi vol apuntar?
+
+=head3 use Perl;
+
+Moltes gràcies!
+
+=over 4
+
+=item Barcelona.pm L<http://barcelona.perl.org/>
+
+=item Perl.cat L<http://perl.cat/>
+
+=item Perl L<http://www.perl.org/>
+
+=item CPAN L<http://www.cpan.org/>
+
+=item PAUSE L<http://pause.cpan.org/>
+
+=back
 
 =head1 AUTORS
 
