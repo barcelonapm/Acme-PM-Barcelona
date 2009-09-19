@@ -89,7 +89,7 @@ tan aleatòries com la loteria, per tant fa una cosa com aquesta:
 
   @resultat = ( 1, 'X', 2 );
 
-  foreach my $fila ( 1 .. 14 ) {
+  foreach $fila ( 1 .. 14 ) {
       print $fila, " ", $resultat[ int rand 3 ], "\n";
   }
 
@@ -106,7 +106,7 @@ desitjats:
       # volem que l'equip de la fila 6 obtingui una X
       6 => 'X',
   );
-  foreach my $fila ( 1 .. 14 ) {
+  foreach $fila ( 1 .. 14 ) {
       if ( !exists $quiniela{$fila} ) {
         $quiniela{$fila} = $resultat[ int rand 3 ];
       }
@@ -181,7 +181,7 @@ especialment si hom les vol publicar al CPAN.
 
 El CPAN posa a disposició dels autors que hi publiquen un gran
 ventall de serveis i avantatges a canvi de què el que publiquin
-sigui lliure. Algus d'ells són:
+sigui lliure. Alguns d'ells són:
 
 =over 4
 
@@ -235,14 +235,12 @@ En les distribucions basades en C<ExtUtils::MakeMaker>:
   perl Makefile.PL
   make
   make test
-  make install
 
 En les distribucions basades en C<Module::Build>:
 
   perl Build.PL
   perl Build
   perl Build test
-  perl Build install
 
 =head2 WWW::Mechanize
 
@@ -267,7 +265,7 @@ Aquest programa cerca la paraula "Perl" a Google.
 
   use WWW::Mechanize;
   
-  my $mech = WWW::Mechanize->new;
+  $mech = WWW::Mechanize->new;
   
   $mech->get('http://www.google.com');
   $mech->field('q', 'Perl');
