@@ -537,7 +537,7 @@ estigui visible.
   );
 
   foreach $url (@webs) {
-    SendKeys('%(f)^t');        # Alt-F, Ctrl-T
+    SendKeys('%(f)t');         # Alt-F, t
     sleep(1);
     SendKeys('^(l)');          # Ctrl-L
     SendKeys('http://www.');
