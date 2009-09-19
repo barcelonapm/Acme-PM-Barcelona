@@ -392,13 +392,13 @@ del tot bé. N'hi ha de 4 nivells:
 
 =over 4
 
-=item L recupera el 7%
+=item * L recupera el 7%
 
-=item M recupera el 15%
+=item * M recupera el 15%
 
-=item Q recupera el 25%
+=item * Q recupera el 25%
 
-=item H recupera el 30%
+=item * H recupera el 30%
 
 =back
 
@@ -567,15 +567,15 @@ Moltes gràcies!
 
 =over 4
 
-=item Barcelona.pm L<http://barcelona.perl.org/>
+=item * L<http://barcelona.pm.org/>
 
-=item Perl.cat L<http://perl.cat/>
+=item * L<http://perl.cat/>
 
-=item Perl L<http://www.perl.org/>
+=item * L<http://www.perl.org/>
 
-=item CPAN L<http://www.cpan.org/>
+=item * L<http://www.cpan.org/>
 
-=item PAUSE L<http://pause.cpan.org/>
+=item * L<http://pause.cpan.org/>
 
 =back
 
