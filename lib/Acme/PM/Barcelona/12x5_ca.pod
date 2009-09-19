@@ -12,7 +12,7 @@ Versió 0.01
 
 Introducció ràpida a Perl a càrrec del grup dels Perl Mongers de Barcelona.
 
-=head1 DESCRIPCIE<Oacute>
+=head1 DESCRIPCIÓ
 
 12x5 és un format de presentació que en Mark Jason Dominus
 va mostrar al grup de Barcelona.pm el juliol de 2003. Ens va agradar
