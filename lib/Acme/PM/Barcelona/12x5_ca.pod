@@ -84,6 +84,41 @@ De vegades, des del grup també s'organitzen festivals,
 xerrades i cursos de Perl amb aprofitant el pas per Barcelona
 d'alguns gurús de la comunitat internacional.
 
+=head2 Quinieles
+
+=head3 La sort és aleatòria
+
+Un company dels mongers diu que ell creu que les quinieles són
+tan aleatòries com la loteria, per tant fa una cosa com aquesta:
+
+  @resultat = ( 1, 'X', 2 );
+
+  foreach my $fila ( 1 .. 14 ) {
+      print $fila, " ", $resultat[ int rand 3 ], "\n";
+  }
+
+=head3 Però potser no volem que ho sigui
+
+En canvi, la seva dona vol poder decidir quin resultat tindrà
+el seu equip favorit. Així doncs, cal una llista de resultats
+desitjats:
+
+  @resultat = ( 1, 'X', 2 );
+  %quiniela = (
+      # volem que l'equip de la fila 4 obtingui un 1
+      4 => 1,
+      # volem que l'equip de la fila 6 obtingui una X
+      6 => 'X',
+  );
+
+  foreach my $fila ( 1 .. 14 ) {
+      if ( !exists $quiniela{$fila} ) {
+        $quiniela{$fila} = $resultat[ int rand 3 ];
+      }
+
+      print $fila, " ", $quiniela{$fila}, "\n";
+  }
+
 =head2 CPAN
 
 =head3 Comprehensive Perl Archive Network
@@ -383,8 +418,6 @@ Llegir un codi QR és encara més senzill:
   use Image::DecodeQR;
 
   $url = Image::DecodeQR::decode('perl.cat_qr.png');
-
-=head2 Títol7
 
 =head2 Títol8
 
