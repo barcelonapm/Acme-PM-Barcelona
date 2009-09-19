@@ -287,6 +287,7 @@ d'un compte de La Caixa.
   $iphone = "Mozilla/5.0 (iPhone; U; ...";
   $mech = WWW::Mechanize->new(agent => $iphone);
 
+=for ToBeUsedInTheFuture
 =head3 L'extracte d'un compte de La Caixa (2)
   
   # home page
@@ -304,6 +305,7 @@ d'un compte de La Caixa.
   	}
   );
 
+=for ToBeUsedInTheFuture
 =head3 L'extracte d'un compte de La Caixa (3)
 
   # segueix el primer enllac,	
@@ -321,6 +323,7 @@ d'un compte de La Caixa.
       <li[^>]+> (\d+/\d+/\d+)
   }sx;
 
+=for ToBeUsedInTheFuture
 =head3 L'extracte d'un compte de La Caixa (4)
   
   print "$1, $2, $3\n"
@@ -525,6 +528,7 @@ estigui visible.
       20,
   );
 
+=for ToBeUsedInTheFuture
 =head3 Obrir algunes pàgines web amb el Firefox (2)
 
   @webs = (
@@ -735,7 +739,7 @@ moment to strike back at the evil oppressors.
 
   print "Hello, world!\n";
 
-=head3 Acme::Code::FreedomFighter (2)
+=head3 Codi del mòdul Acme::Code::FreedomFighter
 
 =for latex
   \tiny
