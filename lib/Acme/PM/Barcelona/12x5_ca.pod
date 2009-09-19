@@ -16,7 +16,7 @@ Introducció ràpida a Perl a càrrec del grup dels Perl Mongers de Barcelona.
 
 12x5 és un format de presentació que en Mark Jason Dominus
 va mostrar al grup de Barcelona.pm el juliol de 2003. Ens va agradar
-tant que volem fer el mateix per introduir tant Perl com la nostra
+tant que volem fer el mateix per presentar Perl i la nostra
 comunitat local de Perl a qualsevol que ens escolti.
 
 =head1 PRESENTACIONS
@@ -30,7 +30,7 @@ que va dissenyar un lingüista anomenat Larry Wall l'any 1987.
 
 Des d'aleshores ençà s'han publicat diverses versions
 amb canvis importants en el llenguatge, essent la versió 5
-la més utilitzada fins ara. La versió 6 incorporara
+la més utilitzada fins ara. La versió 6 incorporarà
 tants canvis que es considera un llenguatge diferent, Perl 6.
 
 =head3 Per què Perl?
