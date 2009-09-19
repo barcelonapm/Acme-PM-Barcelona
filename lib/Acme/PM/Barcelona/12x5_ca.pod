@@ -197,6 +197,53 @@ sigui lliure. Algus d'ells són:
 
 =back
 
+=head2 Tests en Perl
+
+=head3 Perl utilitza tests des del principi
+
+Ja des de la primera versió de Perl, un cop construït l'executable
+es verifica que es comporta com cal. El codi font de Perl inclou
+un gran nombre de tests de tot tipus, que no només permeten veure
+objectivament que la construcció de l'executable ha anat bé sinó
+que ajudaran a detectar errors en cas que passi res.
+
+=head3 La cultura dels tests
+
+Aquesta filosofia d'incorporar tests va quallar molt bé des de
+bon començament dins la comunitat de Perl i els autors que
+publicaven mòduls amb llicència lliure de seguida es van pujar
+al carro dels tests, afegint-los a les seves distribucions.
+
+=head3 Els tests al CPAN
+
+Avui en dia és imprescindible com a mínim tenir 1 test que
+funcioni per a poder publicar un mòdul al CPAN. Això a més
+facilita que els CPAN I<smokers> (robots que executen els
+tests periòdicament) puguin dedicar-se a provar tot el codi
+que hi ha el CPAN sense que els autors hagin de fer molts
+esforços.
+
+Com a resultat, els autors tenen informes d'error i d'èxit
+en múltiples plataformes a les quals habitualment no tenen
+accés i poden veure si els canvis que introdueixen en noves
+versions provoquen algun maldecap a d'altra gent.
+
+=head3 Com es poden provar els tests?
+
+En les distribucions basades en C<ExtUtils::MakeMaker>:
+
+  perl Makefile.PL
+  make
+  make test
+  make install
+
+En les distribucions basades en C<Module::Build>:
+
+  perl Build.PL
+  perl Build
+  perl Build test
+  perl Build install
+
 =head2 WWW::Mechanize
 
 =head3 Robots web
@@ -428,8 +475,6 @@ Llegir un codi QR és encara més senzill:
   use Image::DecodeQR;
 
   $url = Image::DecodeQR::decode('perl.cat_qr.png');
-
-=head2 Títol8
 
 =head2 Títol9
 
