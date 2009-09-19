@@ -77,7 +77,7 @@ el grup de mongers de Barcelona es reuneix el darrer dijous
 de cada mes.
 
 De vegades, des del grup també s'organitzen festivals,
-xerrades i cursos de Perl amb aprofitant el pas per Barcelona
+xerrades i cursos de Perl aprofitant el pas per Barcelona
 d'alguns gurús de la comunitat internacional.
 
 =head2 Quinieles
