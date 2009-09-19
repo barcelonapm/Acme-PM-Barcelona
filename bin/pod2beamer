@@ -46,7 +46,6 @@ my %options = (
 	       "sections" => [ 'PRESENTACIONS/.+' ],
 	       #"full"   => 0,
 	       "full"   => 1,
-	       "out"    => undef,
 	       "verbose" => 0,
 	       "modify" => 0,
 	       #"h1level" => 1,  # section is equivalent to H1
@@ -68,7 +67,6 @@ GetOptions(\%options,
 	   "verbose",
 	   "full",
 	   "sections=s@",
-	   "out=s",
 	   "modify",
 	   "h1level=i",
 	   "preamble=s@",
@@ -113,143 +111,71 @@ $User{UserPreamble} = join("\n", @{$options{'preamble'}})
 $User{UserPostamble} = join("\n", @{$options{'postamble'}})
   if ($options{postamble} && @{$options{postamble}});
 
+# Flag to indicate whether we have converted at least one file
+# indicates how many files have been converted
+my $converted = 0;
 
+# Loop over the input files
+foreach my $pod (@pods) {
 
-# If $options{'out'} is set we are processing to a single output file
-my $multi_documents;
-if (exists $options{'out'} && defined $options{'out'}) {
-  $multi_documents = 0;
-} else {
-  $multi_documents = 1;
-}
+  if (-f $pod) {
 
-# If the output file is not specified it is assumed that
-# a single output file is required per input file using
-# a .tex extension rather than any exisiting extension
+    warn "Converting $pod\n" if $options{'verbose'};
 
-if ($multi_documents) {
+    # Open the file (need the handle)
+    # Use auto-vivified handle in perl 5.6
+    my $podfh = gensym;
+    open ($podfh, "<$pod") || die "Could not open pod file $pod: $!\n";
 
-  # Case where we just generate one input per output
+    # if this is the first file to be converted we may want to add
+    # a preamble (controlled by command line option)
+    my $preamble = 0;
+    $preamble = 1 if ($converted == 0 && $options{'full'});
 
-  foreach my $pod (@pods) {
+    # if this is the last file to be converted may want to add
+    # a postamble (controlled by command line option)
+    # relies on a previous pass to check existence of all pods we
+    # are converting.
+    my $postamble = ( ($converted == $#pods && $options{'full'}) ? 1 : 0 );
 
-    if (-f $pod) {
+    # Open parser object
+    # May want to start with a preamble for the first one and
+    # end with an index for the last
+    my $parser = new Pod::LaTeX(
+      MakeIndex => $options{'full'},
+      TableOfContents => $preamble,
+      ReplaceNAMEwithSection => $options{'modify'},
+      UniqueLabels => $options{'modify'},
+      StartWithNewPage => $options{'full'},
+      AddPreamble => $preamble,
+      AddPostamble => $postamble,
+      Head1Level => $options{'h1level'},
+      LevelNoNum => $options{'h1level'} + 1,
+      %User
+    );
 
-      my $output = $pod;
-      $output = basename($output, '.pm', '.pod','.pl') . '.tex';
+    # Store the file name for error messages
+    # This is a kluge that breaks the data hiding of the object
+    $parser->{_INFILE} = $pod;
 
-      # Create a new parser object
-      my $parser = new Pod::LaTeX(
-				  AddPreamble => $options{'full'},
-				  AddPostamble => $options{'full'},
-				  MakeIndex => $options{'full'},
-				  TableOfContents => $options{'full'},
-				  ReplaceNAMEwithSection => $options{'modify'},
-				  UniqueLabels => $options{'modify'},
-				  Head1Level => $options{'h1level'},
-				  LevelNoNum => $options{'h1level'} + 1,
-                                  %User,
-				 );
+    # Select sections if supplied
+    $parser->select(@{ $options{'sections'}})
+      if @{$options{'sections'}};
 
-      # Select sections if supplied
-      $parser->select(@{ $options{'sections'}})
-	if @{$options{'sections'}};
+    # Parse it
+    $parser->parse_from_filehandle($podfh);
 
-      # Derive the input file from the output file
-      $parser->parse_from_file($pod, $output);
+    # We have converted at least one file
+    $converted++;
 
-      print "Written output to $output\n" if $options{'verbose'};
-
-    } else {
-      warn "File $pod not found\n";
-    }
-
-  }
-} else {
-
-  # Case where we want everything to be in a single document
-
-  # Need to open the output file ourselves
-  my $output = $options{'out'};
-  $output .= '.tex' unless $output =~ /\.tex$/;
-
-  # Use auto-vivified file handle in perl 5.6
-  my $outfh = gensym;
-  open ($outfh, ">$output") || die "Could not open output file: $!\n";
-
-  # Flag to indicate whether we have converted at least one file
-  # indicates how many files have been converted
-  my $converted = 0;
-
-  # Loop over the input files
-  foreach my $pod (@pods) {
-
-    if (-f $pod) {
-
-      warn "Converting $pod\n" if $options{'verbose'};
-
-      # Open the file (need the handle)
-      # Use auto-vivified handle in perl 5.6
-      my $podfh = gensym;
-      open ($podfh, "<$pod") || die "Could not open pod file $pod: $!\n";
-
-      # if this is the first file to be converted we may want to add
-      # a preamble (controlled by command line option)
-      my $preamble = 0;
-      $preamble = 1 if ($converted == 0 && $options{'full'});
-
-      # if this is the last file to be converted may want to add
-      # a postamble (controlled by command line option)
-      # relies on a previous pass to check existence of all pods we
-      # are converting.
-      my $postamble = ( ($converted == $#pods && $options{'full'}) ? 1 : 0 );
-
-      # Open parser object
-      # May want to start with a preamble for the first one and
-      # end with an index for the last
-      my $parser = new Pod::LaTeX(
-				  MakeIndex => $options{'full'},
-				  TableOfContents => $preamble,
-				  ReplaceNAMEwithSection => $options{'modify'},
-				  UniqueLabels => $options{'modify'},
-				  StartWithNewPage => $options{'full'},
-				  AddPreamble => $preamble,
-				  AddPostamble => $postamble,
-				  Head1Level => $options{'h1level'},
-				  LevelNoNum => $options{'h1level'} + 1,
-                                  %User
-				 );
-
-      # Store the file name for error messages
-      # This is a kluge that breaks the data hiding of the object
-      $parser->{_INFILE} = $pod;
-
-      # Select sections if supplied
-      $parser->select(@{ $options{'sections'}})
-	if @{$options{'sections'}};
-
-      # Parse it
-      $parser->parse_from_filehandle($podfh, $outfh);
-
-      # We have converted at least one file
-      $converted++;
-
-    } else {
-      warn "File $pod not found\n";
-    }
-
+  } else {
+    warn "File $pod not found\n";
   }
 
-  # Should unlink the file if we didn't convert anything!
-  # dont check for return status of unlink
-  # since there is not a lot to be done if the unlink failed
-  # and the program does not rely upon it.
-  unlink "$output" unless $converted;
-
-  # If verbose
-  warn "Converted $converted files\n" if $options{'verbose'};
-
 }
+
+# If verbose
+warn "Converted $converted files\n" if $options{'verbose'};
 
 exit;
 
@@ -257,24 +183,22 @@ __END__
 
 =head1 NAME
 
-pod2latex - convert pod documentation to latex format
+pod2beamer - convert pod documentation to latex-beamer slides
 
 =head1 SYNOPSIS
 
-  pod2latex *.pm
+  pod2beamer *.pm > file.tex
 
-  pod2latex -out mytex.tex *.pod
+  pod2beamer -full -sections 'DESCRIPTION|NAME' SomeDir > file.tex
 
-  pod2latex -full -sections 'DESCRIPTION|NAME' SomeDir
-
-  pod2latex -prefile h.tex -postfile t.tex my.pod
+  pod2beamer -prefile h.tex -postfile t.tex my.pod > file.tex
 
 =head1 DESCRIPTION
 
-C<pod2latex> is a program to convert POD format documentation
-(L<perlpod>) into latex. It can process multiple input documents at a
-time and either generate a latex file per input document or a single
-combined output file.
+C<pod2beamer> is a program to convert POD format documentation
+(L<perlpod>) into latex-beamer slides. It processes multiple input
+documents at a time and generates a single combined output to
+the standard out.
 
 =head1 OPTIONS AND ARGUMENTS
 
@@ -282,14 +206,6 @@ This section describes the supported command line options. Minimum
 matching is supported.
 
 =over 4
-
-=item B<-out>
-
-Name of the output file to be used. If there are multiple input pods
-it is assumed that the intention is to write all translated output
-into a single file. C<.tex> is appended if not present.  If the
-argument is not supplied, a single document will be created for each
-input file.
 
 =item B<-full>
 
@@ -365,35 +281,22 @@ order. See B<-postamble>.
 
 =head1 BUGS
 
-Known bugs are:
-
-=over 4
-
-=item *
-
-Cross references between documents are not resolved when multiple
-pod documents are converted into a single output C<latex> file.
-
-=item *
-
-Functions and variables are not automatically recognized
-and they will therefore not be marked up in any special way
-unless instructed by an explicit pod command.
-
-=back
+See BUGS section on C<pod2latex>.
 
 =head1 SEE ALSO
 
-L<Pod::LaTeX>
+This code is strongly based on C<pod2latex>.
+
+L<pod2latex>, L<Pod::LaTeX>
 
 =head1 AUTHOR
 
-Tim Jenness E<lt>tjenness@cpan.orgE<gt>
+Alex Muntada E<lt>alexm at cpan dot orgE<gt>
 
 This program is free software; you can redistribute it
 and/or modify it under the same terms as Perl itself.
 
-Copyright (C) 2000, 2003, 2004 Tim Jenness. All Rights Reserved.
+Copyright (C) 2009 Alex Muntada. All Rights Reserved.
 
 =cut
 
