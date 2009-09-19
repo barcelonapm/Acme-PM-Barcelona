@@ -199,6 +199,8 @@ sigui lliure:
 
 =head2 WWW::Mechanize
 
+=head3 Robots web
+
 Amb Perl es poden escriure programes que naveguen per la web.
 
 =head3 La pàgina d'inici de La Vanguardia
@@ -253,7 +255,7 @@ d'un compte de La Caixa.
   	}
   );
 
-=head3 ...
+=head3 L'extracte d'un compte de La Caixa (2)
 
   # segueix el primer enllac,	
   $mech->follow_link(tag => 'a', n => 1);	
@@ -279,6 +281,8 @@ d'un compte de La Caixa.
   # ...
 
 =head2 Finance::Quote i Cache::FileCache
+
+=head3 Com està el canvi?
 
 Es pot obtenir el canvi actualitzat de la moneda d'arreu del món.
 
@@ -310,6 +314,8 @@ Es pot obtenir el canvi actualitzat de la moneda d'arreu del món.
   print "10 USD = ", 10 * $ratio, " EUR\n";
 
 =head2 Flickr::Upload
+
+=head3 Teniu compte al Flickr?
 
 Una eina que utilitza C<Flickr::API> per a publicar fotos a Flickr.
 
