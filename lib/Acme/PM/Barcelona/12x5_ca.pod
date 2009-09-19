@@ -106,12 +106,10 @@ desitjats:
       # volem que l'equip de la fila 6 obtingui una X
       6 => 'X',
   );
-
   foreach my $fila ( 1 .. 14 ) {
       if ( !exists $quiniela{$fila} ) {
         $quiniela{$fila} = $resultat[ int rand 3 ];
       }
-
       print $fila, " ", $quiniela{$fila}, "\n";
   }
 
@@ -146,7 +144,7 @@ compte al PAUSE, que és el servei que permet
 fer la publicació; un cop aprovat, es poden registrar els mòduls
 i publicar-los.
 
-=head3 Els mòduls i els paquets
+=head3 Els mòduls
 
 Un mòdul és un fitxer de text que conté la definició d'un o més
 paquets de Perl. Per exemple el paquet C<Acme::PM::Barcelona::Meeting>
@@ -155,6 +153,8 @@ de Barcelona. Aquest paquet es troba al fitxer següent dins del
 directori de mòduls de Perl:
 
   Acme/PM/Barcelona/Meeting.pm
+
+=head3 Els paquets
 
 Els paquets defineixen espais de noms reservats per a agrupar
 trossos de codi relacionat amb un mateix tema. Així s'hi poden
@@ -181,7 +181,7 @@ especialment si hom les vol publicar al CPAN.
 
 El CPAN posa a disposició dels autors que hi publiquen un gran
 ventall de serveis i avantatges a canvi de què el que publiquin
-sigui lliure:
+sigui lliure. Algus d'ells són:
 
 =over 4
 
@@ -239,11 +239,15 @@ d'un compte de La Caixa.
   $password = 'contrasenya';
   
   # fest-te passar per un iPhone, es mes senzill
-  $iphone = "Mozilla/5.0 (iPhone; U; CPU iPhone OS 3_0 like Mac OS X; en-us) AppleWebKit/528.18 (KHTML, like Gecko) Version/4.0 Mobile/7A341 Safari/528.16";
+  $iphone = "Mozilla/5.0 (iPhone; U; ...";
   $mech = WWW::Mechanize->new(agent => $iphone);
+
+=head3 L'extracte d'un compte de La Caixa (2)
   
   # home page
-  $mech->get("http://lacaixa.mobi/apl/index_es.html?select=true");
+  $mech->get(
+      "http://lacaixa.mobi/apl/index_es.html?select=true"
+  );
   $mech->follow_link(url_regex => qr/es-mobi-menu-lo/);
   
   # fes login
@@ -255,13 +259,14 @@ d'un compte de La Caixa.
   	}
   );
 
-=head3 L'extracte d'un compte de La Caixa (2)
+=head3 L'extracte d'un compte de La Caixa (3)
 
   # segueix el primer enllac,	
   $mech->follow_link(tag => 'a', n => 1);	
   
   # captura els moviments
-  ($movements) = $mech->content =~ m{(<ul[^>]*>\s*<li[^>]*>\s*<a.*?</ul>)}i;
+  ($movements) = $mech->content
+      =~ m{(<ul[^>]*>\s*<li[^>]*>\s*<a.*?</ul>)}i;
   
   $mov_regexp = qr{
       <td\s+align="left"> (.+?) </td>
@@ -270,8 +275,11 @@ d'un compte de La Caixa.
       .*?
       <li[^>]+> (\d+/\d+/\d+)
   }sx;
+
+=head3 L'extracte d'un compte de La Caixa (4)
   
-  print "$1, $2, $3\n" while $movements =~ /$mov_regexp/g;
+  print "$1, $2, $3\n"
+      while $movements =~ /$mov_regexp/g;
   
   # AHORRA EL CAMBIO, -2,10, 06/09/2009
   # FRANKFURT PLATJA-, -14,40, 05/09/2009
@@ -330,7 +338,7 @@ les instruccions que us indicarà aquesta ordre:
 
 I un cop ho haureu fet, ja podreu publicar les fotos que vulgueu:
 
-  $ flickr_upload --progress --tag 'barcelona perl mongers' *.jpg
+  $ flickr_upload --progress --tag 'barcelona.pm' *.jpg
 
 =head3 Programar amb Flickr::Upload
 
@@ -348,7 +356,7 @@ les vostres fotos.
   $ua->upload(
     'auth_token' => $auth_token,
     'photo'      => 'barcelona-pm.jpg',
-    'tags'       => 'barcelona perl mongers',
+    'tags'       => 'barcelona.pm',
     'is_public'  => 1,
     'is_friend'  => 1,
     'is_family'  => 1,
@@ -409,7 +417,9 @@ Generar un codi QR és molt senzill:
   use GD::Barcode::QRcode;
 
   binmode(STDOUT);
-  print GD::Barcode::QRcode->new('http://perl.cat/')->plot->png;
+  print GD::Barcode::QRcode->new('http://perl.cat/')
+                           ->plot
+                           ->png;
 
 =head3 Image::DecodeQR
 
@@ -436,7 +446,7 @@ Llegir un codi QR és encara més senzill:
 =item * Consisteix en resoldre un cert problema en Perl usant el mínim
 nombre de caràcters possible.
 
-=item * El nom es una conya que ve de l'anglès. Es tracta d'usar el
+=item * El nom és una conya que ve de l'anglès. Es tracta d'usar el
 mínim nombre de B<(key)strokes>. Seguint amb l'analogia, als
 problemes en golf se'ls anomena B<holes>.
 
@@ -444,103 +454,85 @@ problemes en golf se'ls anomena B<holes>.
 
 =back
 
-=head3 Exemple 1
+=head3 Forat 1
 
 Redueix un nombre enter al seu nombre secret:
 
   #!/usr/bin/perl -l
   print while+s/./hex($`%10+$&)%15/eg^s//pop/e
 
-=head3 Exemple 2
+  $ forat1.pl 123456
+  123456
+  35792
+  8372
+  219
+  31
+  4
+
+=head3 Forat 2
 
 Troba tots els anagrames:
 
   #!/usr/bin/perl
   map!s/
-  \b/ /|//||print,sort%%for map$%.=$_,sort<>
+  \b/ /|//||print,sort%%for map$%{o,sort/./g}.=$_,sort<>
 
-=head3 Exemple 3
-
-Fes una ordenació topològica:
-
-  #!/usr/bin/perl -ln0
-  / \Q$&/||print$1while s/(
-  |(?= ?\G))\Q$&/
-  /g,/(\S+) /g/$#+
+  $ forat2.pl
+  casa
+  saca
+  sosa
+  ossa
+  olla
+  lola
+  casa saca
+  lola olla
+  ossa sosa
 
 =head3 Poesia Perl
 
 =over 4
 
 =item * Com que Perl té paraules clau i funcions que són paraules angleses,
-i a més la sintaxi és bastant permisiva, hi ha gent que hi escriu poesies.
+i a més la sintaxi és bastant permissiva, hi ha gent que hi escriu poesies.
 
 =item * Les poesies han de ser sintàcticament correctes, però es permet que
-generin warnings, i no es demana que facin res en particular.
+generin I<warnings>, i no es demana que facin res en particular.
 
 =back
 
-=head3 Exemple 1
+=head3 Poesia 1
 
   study, write, study,
   do review (each word) if time.
   close book. sleep? what's that?
 
-=head3 Example 2
+=head3 Poesia 2
 
   no less can I say;
   require strict, close attention
   while you ... write haiku
 
-=head3 Example 3
-
-  APPEAL:
-  listen (please, please);
-      open yourself, wide;
-      join (you, me),
-      connect (us,together),
-  tell me.
-  do something if distressed;
-      @dawn, dance;
-      @evening, sing;
-      read (books,$poems,stories) until peaceful;
-      study if able;
-      write me if-you-please;
-  sort your feelings, reset goals, seek (friends, family, anyone);
-          do*not*die (like this)
-          if sin abounds;
-  keys (hidden), open (locks, doors), tell secrets;
-      do not I-beg-you, close them, yet.
-                  accept (yourself, changes),
-                  bind (grief, despair);
-      require truth, goodness if-you-will, each moment;
-  select (always), length(of-days)
-
-=head3 JAPHs
+=head3 JAPH
 
 =over 4
 
 =item * Un JAPH es un programa Perl que treu per pantalla la frase
 "Just another Perl hacker,".
 
-=item * Normalment els JAPHs són molt originals, o molt
+=item * Normalment els JAPH són molt originals, o molt
 obfuscats.
 
 =back
 
-=head3 Exemple 1
+=head3 JAPH 1
 
   $_ = "wftedskaebjgdpjgidbsmnjgc";
   tr/a-z/oh, turtleneck Phrase Jar!/; print;
 
-=head3 Exemple 2
+=head3 JAPH 2
 
-  @P=split//,".URRUU\c8R";@d=split//,"\nrekcah xinU / lreP rehtona tsuJ";sub p{
-  @p{"r$p","u$p"}=(P,P);pipe"r$p","u$p";++$p;($q*=2)+=$f=!fork;map{$P=$P[$f^ord
-  ($p{$_})&6];$p{$_}=/ ^$P/ix?$P:close$_}keys%p}p;p;p;p;p;map{$p{$_}=~/^[P.]/&&
-  close$_}%p;wait until$?;map{/^r/&&<$_>}%p;$_=$d[$q];sleep rand(2)if/\S/;print
-
-=head3 Exemple 3
+=for latex
+  \scriptsize
 
   $_=q;Barcelona Perl Mongers;,$/=y,gaudi,,,;map$,+=(split//)*(-1)**$|++
   ,(split)[.11_09,1.714];$.=''!~m~erce~;$"=y,catalunya,,,$;=y,rambles,,,
