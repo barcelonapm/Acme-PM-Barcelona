@@ -729,6 +729,8 @@ automàticament dels canvis que jo hi faci.
 
 =item Barcelona Perl Mongers
 
+=item Eva Perales
+
 =back
 
 =head1 COPYRIGHT I LLICÈNCIA
