@@ -1,7 +1,4 @@
-bin/pod2beamer
 Changes
-doc/postamble.tex
-doc/preamble.tex
 inc/Module/AutoInstall.pm
 inc/Module/Install.pm
 inc/Module/Install/AutoInstall.pm
@@ -15,7 +12,6 @@ inc/Module/Install/Win32.pm
 inc/Module/Install/WriteAll.pm
 lib/Acme/PM/Barcelona.pm
 lib/Acme/PM/Barcelona/12x5_ca.pod
-lib/Acme/PM/Barcelona/12x5_en.pod
 lib/Acme/PM/Barcelona/Meeting.pm
 Makefile
 Makefile.PL
