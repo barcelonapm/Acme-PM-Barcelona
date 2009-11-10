@@ -9,11 +9,11 @@ Acme::PM::Barcelona - Talks and projects by Barcelona.pm
 
 =head1 VERSION
 
-Version 0.02
+Version 0.03
 
 =cut
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
 
 =head1 SYNOPSIS
@@ -28,7 +28,7 @@ This is a list of talks and projects made by Barcelona.pm as a group.
 
 =item 19 Sep 2009 - Software Freedom Day
 
-The talk I<Coneixeu Perl amb Barcelona.pm> consists in 12 subjects
+The talk L<Acme::PM::Barcelona::12x5_ca> consists in 12 subjects
 presented in 5 minutes each, trying to attrack more people to our
 Perl Mongers group, but mainly to Perl.
 

@@ -1,5 +1,8 @@
 Revision history for Acme-PM-Barcelona
 
+0.03    Tue Nov 10 21:36:38 CET 2009
+        Add presentation Acme::PM::Barcelona::12x5_ca.pod
+
 0.02    Fri Sep  4 02:29:10 CEST 2009
         New module Acme::PM::Barcelona::Meeting
 
