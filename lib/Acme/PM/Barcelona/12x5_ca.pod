@@ -1,6 +1,6 @@
 =encoding utf8
 
-=head1 NOM
+=head1 NAME/NOM
 
 Acme::PM::Barcelona::12x5_ca - 12 xerrades, 5 minuts cadascuna
 

@@ -1,5 +1,8 @@
 Revision history for Acme-PM-Barcelona
 
+0.04    Wed Nov 11 20:54:01 CET 2009
+        Tweak Acme::PM::Barcelona::12x5_ca NAME/NOM head1
+
 0.03    Tue Nov 10 21:36:38 CET 2009
         Add presentation Acme::PM::Barcelona::12x5_ca.pod
 
