@@ -1,12 +1,7 @@
+# PODNAME: Acme::PM::Barcelona::12x5_ca
+# ABSTRACT: 12 xerrades, 5 minuts cadascuna
+
 =encoding utf8
-
-=head1 NAME/NOM
-
-Acme::PM::Barcelona::12x5_ca - 12 xerrades, 5 minuts cadascuna
-
-=head1 VERSIÓ
-
-Versió 0.01
 
 =head1 SINOPSI
 
