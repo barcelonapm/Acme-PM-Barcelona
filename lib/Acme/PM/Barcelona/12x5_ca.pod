@@ -871,7 +871,7 @@ automàticament dels canvis que jo hi faci.
 
 =head1 COPYRIGHT I LLICÈNCIA
 
-Copyright 2009 Alex Muntada, tots els drets reservats.
+Copyright 2009-2021 Alex Muntada, tots els drets reservats.
 
 Aquest programa és programari lliure; el podeu redistribuir i/o
 modificar sota els mateixos termes que el propi Perl.
