@@ -853,8 +853,7 @@ Moltes gràcies!
 =head1 ERRADES
 
 Si us plau, informeu de qualsevol errada o millora a
-C<bug-acme-pm-barcelona at rt.cpan.org>, o a través
-de la web L<http://rt.cpan.org/NoAuth/ReportBug.html?Queue=Acme-PM-Barcelona>.
+a través de la web L<https://github.com/barcelonapm/Acme-PM-Barcelona/issues>.
 Jo rebré un avís i se us notificarà
 automàticament dels canvis que jo hi faci.
 

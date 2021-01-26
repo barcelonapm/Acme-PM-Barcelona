@@ -19,21 +19,6 @@ perldoc command.
 
     perldoc Acme::PM::Barcelona
 
-You can also look for information at:
-
-    RT, CPAN's request tracker
-        http://rt.cpan.org/NoAuth/Bugs.html?Dist=Acme-PM-Barcelona
-
-    AnnoCPAN, Annotated CPAN documentation
-        http://annocpan.org/dist/Acme-PM-Barcelona
-
-    CPAN Ratings
-        http://cpanratings.perl.org/d/Acme-PM-Barcelona
-
-    Search CPAN
-        http://search.cpan.org/dist/Acme-PM-Barcelona
-
-
 COPYRIGHT AND LICENCE
 
 Copyright (C) 2009 Alex Muntada
